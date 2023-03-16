@@ -1,6 +1,7 @@
 //Fetch the api
 //The api is not json, its is actually csv data
-const earnings_calendar = "https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=3month&apikey=NYQ6Y3MD56WEE60B";
+const api_key = process.env.API_KEY
+const earnings_calendar = `https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&horizon=3month&apikey=${API_KEY}`;
 
 import scramjet from 'scramjet';
 const { StringStream } = scramjet;
@@ -11,5 +12,5 @@ const { get } = r;
 get(earnings_calendar)
     .pipe(new StringStream())
     .CSVParse()                                   // parse CSV output into row objects
-    .consume(object => console.log("Row:", object))
+    .each(object => console.log("Row:", object))
     .then(() => console.log("success"));
