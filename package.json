@@ -1,0 +1,19 @@
+{
+  "name": "earnings-calls",
+  "version": "1.0.0",
+  "description": "Project to display information for earnings season.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasDillard1/Earnings-Calls.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasDillard1/Earnings-Calls/issues"
+  },
+  "homepage": "https://github.com/ThomasDillard1/Earnings-Calls#readme"
+}
