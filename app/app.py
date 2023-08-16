@@ -1,8 +1,7 @@
-from flask import Flask, jsonify, render_template
-import requests
-import json
+from flask import Flask, render_template, jsonify
 from decouple import config
 
+#Get the api key from the .env file
 API_KEY = config('API_KEY')
 
 app = Flask(__name__)
@@ -14,4 +13,4 @@ def index():
 
 # main driver function
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
