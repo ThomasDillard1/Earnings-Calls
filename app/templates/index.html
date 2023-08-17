@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Home Page {% endblock %}
+
 {% block content %}
-<h1>This is the content.</h1>
+<h1>Company Lookup</h1>
+
+<form method="post">
+    <input type="text" placeholder="Enter ticker" id="companyInput" list="companyList" name="companyInput">
+    <button type="submit">Search</button>
+    <datalist id="companyList">
+        {% for company in companies %}
+        <option value="{{ company }}">
+        {% endfor %}
+    </datalist>
+</form>
+
 {% endblock %}
