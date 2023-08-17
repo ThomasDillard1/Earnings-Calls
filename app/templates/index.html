@@ -5,7 +5,7 @@
 <h1>Company Lookup</h1>
 
 <form method="post">
-    <input type="text" placeholder="Enter ticker" id="companyInput" list="companyList" name="companyInput">
+    <input type="text" placeholder="Enter ticker" id="companyInput" list="companyList" name="ticker">
     <button type="submit">Search</button>
     <datalist id="companyList">
         {% for company in companies %}
