@@ -29,6 +29,7 @@ def index():
         return render_template('index.html', companies=companies)
 
 
+#Next step is to create an html page for this rendering and then style it I guess
 @app.route('/<ticker>', methods=['POST', 'GET'])
 def company_overview(ticker):
     if ticker in session:
