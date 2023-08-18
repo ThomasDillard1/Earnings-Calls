@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from decouple import config
 import requests
 
@@ -37,7 +37,8 @@ def company_overview(ticker):
         return render_template('company.html', ticker=ticker, company_data=company_data)
     else:
         #if ticker doesn't exist, then make them enter a new ticker
-        return redirect(url_for(index))
+        flash('Company does not exist in API')
+        return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
