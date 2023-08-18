@@ -34,8 +34,9 @@ def index():
 def company_overview(ticker):
     if ticker in session:
         company_data = session[ticker]
-        return f"<h2>{ticker}</h2><br>{company_data}"
+        return render_template('company.html', ticker=ticker, company_data=company_data)
     else:
+        #if ticker doesn't exist, then make them enter a new ticker
         return redirect(url_for(index))
 
 if __name__ == '__main__':

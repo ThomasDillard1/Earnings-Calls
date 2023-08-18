@@ -1,0 +1,6 @@
+.navbar-nav .nav-link:hover {
+    opacity: 0.9; /* Adjust the opacity value as needed */
+}
+.nav-text-opacity {
+    opacity: 0.7;
+}
