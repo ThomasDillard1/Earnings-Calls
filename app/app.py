@@ -34,7 +34,7 @@ def index():
 def company_overview(ticker):
     if ticker in session:
         company_data = session[ticker]
-        return render_template('company.html', ticker=ticker, company_data=company_data)
+        return render_template('overview.html', ticker=ticker, company_data=company_data)
     else:
         #if ticker doesn't exist, then make them enter a new ticker
         flash('Company does not exist in API')

@@ -1,50 +1,35 @@
 {% extends "base.html" %}
-{% block title %}{{ ticker }}Company Overview{% endblock %}
+
+{% block title %}{{ ticker }}{% endblock %}
 
 {% block content %}
-
-<div class="container mt-4">
-    <h2 class="mb-4 text-center">{{ company_data['Name'] }} ({{ticker}})</h2>
-    
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card p-4 mb-4">
-                <h4>About</h4>
-                <p><strong>Description:</strong> {{ company_data['Description'] }}</p>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card p-4">
-                <h4>Key Statistics</h4>
-                <p><strong>Industry:</strong> {{ company_data['Industry'] }}</p>
-                <p><strong>Sector:</strong> {{ company_data['Sector'] }}</p>
-                <p><strong>Market Cap:</strong> {{ company_data['MarketCapitalization'] }}</p>
-                <p><strong>52-Week Range:</strong> {{ company_data['52WeekLow'] }} - {{ company_data['52WeekHigh'] }}</p>
-                <p><strong>Dividend Yield:</strong> {{ company_data['DividendYield'] }}</p>
-                <p><strong>Analyst Target Price:</strong> {{ company_data['AnalystTargetPrice'] }}</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card p-4">
-                <h4>Financial Metrics</h4>
-                <p><strong>Revenue (TTM):</strong> {{ company_data['RevenueTTM'] }}</p>
-                <p><strong>Gross Profit (TTM):</strong> {{ company_data['GrossProfitTTM'] }}</p>
-                <p><strong>Operating Margin (TTM):</strong> {{ company_data['OperatingMarginTTM'] }}</p>
-                <p><strong>Profit Margin:</strong> {{ company_data['ProfitMargin'] }}</p>
-                <p><strong>EPS:</strong> {{ company_data['EPS'] }}</p>
-                <p><strong>Forward P/E:</strong> {{ company_data['ForwardPE'] }}</p>
-                <p><strong>P/E Ratio:</strong> {{ company_data['PERatio'] }}</p>
-                <p><strong>Return on Equity (TTM):</strong> {{ company_data['ReturnOnEquityTTM'] }}</p>
-                <p><strong>Return on Assets (TTM):</strong> {{ company_data['ReturnOnAssetsTTM'] }}</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+    <h2 class="mb-4 text-center" style="text-decoration: underline; text-decoration-color: #007BFF;text-underline-offset: 0.40em">{{ company_data['Name'] }} ({{ticker}})</h2>
+</div>
+<!--- Put in a navbar here -->
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border border-primary rounded-2" style="justify-content: center;">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Income Statement</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Balance Sheet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Statement of Cash Flows</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Stock Performance</a>
+          </li>
+        </ul>
+    </nav>
 </div>
 
 {% endblock %}
 
-
+{% block innercontent %}
+{% endblock %}
