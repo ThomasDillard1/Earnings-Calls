@@ -20,25 +20,69 @@ app.secret_key = SECRET_KEY
 def index():
     if request.method == 'POST':
         company_ticker = request.form['ticker'] #comes from the name of the <input> in index.html
-        url = f'https://www.alphavantage.co/query?function=OVERVIEW&symbol={company_ticker}&apikey={API_KEY}'
-        r = requests.get(url)
-        data = r.json()
-        session[company_ticker] = data
         return redirect(url_for("company_overview", ticker=company_ticker))
     else:
         return render_template('index.html', companies=companies)
 
+def get_company_overview(ticker):
+    id = ticker + 'overview'
+    if id in session:
+        return session[id]
+    else:
+        #fetch the company overview data
+        url = f'https://www.alphavantage.co/query?function=OVERVIEW&symbol={ticker}&apikey={API_KEY}'
+        r = requests.get(url)
+        if r.status_code == 200:
+            company_data = r.json()
+            session[id] = company_data
+            return company_data
+        else:
+            flash('Company does not exist in API')
+            return redirect(url_for('index'))
 
-#Next step is to create an html page for this rendering and then style it I guess
 @app.route('/<ticker>', methods=['POST', 'GET'])
 def company_overview(ticker):
-    if ticker in session:
-        company_data = session[ticker]
-        return render_template('overview.html', ticker=ticker, company_data=company_data)
+    company_data = get_company_overview(ticker)
+    session['Company_Name'] = company_data['Name'] #For the company.html header
+    return render_template('overview.html', ticker=ticker, company_data=company_data, active_page='overview')
+
+
+def get_income_statment(ticker):
+    id = ticker + 'income_statement'
+    if id in session:
+        return session[id]
     else:
-        #if ticker doesn't exist, then make them enter a new ticker
-        flash('Company does not exist in API')
-        return redirect(url_for('index'))
+        #fetch the company overview data
+        url = f'https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol={ticker}&apikey={API_KEY}'
+        r = requests.get(url)
+        if r.status_code == 200:
+            income_data = r.json()
+            session[id] = income_data
+            return income_data
+
+@app.route('/<ticker>/income_statement', methods=['GET'])
+def income_statement(ticker):
+    income_data = get_income_statment(ticker)
+    return render_template('income.html', ticker=ticker, income_data=income_data, active_page='income_statement')
+
+
+def get_balance_sheet(ticker):
+    id = ticker + 'balance_sheet'
+    if id in session:
+        return session[id]
+    else:
+        #fetch the company overview data
+        url = f'https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol={ticker}&apikey={API_KEY}'
+        r = requests.get(url)
+        if r.status_code == 200:
+            balance_sheet_data = r.json()
+            session[id] = balance_sheet_data
+            return balance_sheet_data
+        
+@app.route('/<ticker>/balance_sheet', methods=['GET'])
+def balance_sheet(ticker):
+    balance_sheet_data = get_balance_sheet(ticker)
+    return render_template('balance_sheet.html', ticker=ticker, balance_sheet=balance_sheet_data, active_page='balance_sheet')
 
 if __name__ == '__main__':
     app.run(debug=True)
