@@ -103,7 +103,9 @@ def statement_of_cash_flows(ticker):
     scf_data = get_scf(ticker)
     return render_template('scf.html', ticker=ticker, scf=scf_data, active_page='cash_flows')
 
-
+@app.route('/<ticker>/stock-performance')
+def stock_performance(ticker):
+    return render_template('stock.html', ticker=ticker, active_page='stock_performance')
 
 if __name__ == '__main__':
     app.run(debug=True)
