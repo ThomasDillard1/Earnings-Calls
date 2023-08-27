@@ -52,7 +52,7 @@ def get_income_statment(ticker):
     if id in session:
         return session[id]
     else:
-        #fetch the company overview data
+        #fetch the income statement data
         url = f'https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol={ticker}&apikey={API_KEY}'
         r = requests.get(url)
         if r.status_code == 200:
@@ -71,7 +71,7 @@ def get_balance_sheet(ticker):
     if id in session:
         return session[id]
     else:
-        #fetch the company overview data
+        #fetch the balance sheet data
         url = f'https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol={ticker}&apikey={API_KEY}'
         r = requests.get(url)
         if r.status_code == 200:
@@ -83,6 +83,27 @@ def get_balance_sheet(ticker):
 def balance_sheet(ticker):
     balance_sheet_data = get_balance_sheet(ticker)
     return render_template('balance_sheet.html', ticker=ticker, balance_sheet=balance_sheet_data, active_page='balance_sheet')
+
+
+def get_scf(ticker):
+    id = ticker + 'scf'
+    if id in session:
+        return session[id]
+    else:
+        #fetch the company overview data
+        url = f'https://www.alphavantage.co/query?function=CASH_FLOW&symbol={ticker}&apikey={API_KEY}'
+        r = requests.get(url)
+        if r.status_code == 200:
+            scf_data = r.json()
+            session[id] = scf_data
+            return scf_data
+
+@app.route('/<ticker>/scf')
+def statement_of_cash_flows(ticker):
+    scf_data = get_scf(ticker)
+    return render_template('scf.html', ticker=ticker, scf=scf_data, active_page='cash_flows')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
