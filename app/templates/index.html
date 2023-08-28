@@ -2,17 +2,27 @@
 {% block title %}Home Page {% endblock %}
 
 {% block content %}
-<h1>Company Lookup</h1>
 
-<form method="post">
-    <input type="text" placeholder="Enter ticker" id="companyInput" list="companyList" name="ticker">
-    <button type="submit">Search</button>
-    <datalist id="companyList">
-        {% for company in companies %}
-        <option value="{{ company }}">
-        {% endfor %}
-    </datalist>
-</form>
+<div class="container">
+    <h1>Company Lookup</h1>
+    <form method="post">
+        <div class="input-group">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <input type="text" class="form-control input-sm" placeholder="Enter ticker" id="companyInput" list="companyList" name="ticker">
+                </div>
+            </div>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-light" style="border: solid black">Search</button>
+            </div>
+        </div>
+        <datalist id="companyList">
+            {% for company in companies %}
+            <option value="{{ company }}">
+            {% endfor %}
+        </datalist>
+    </form>
+</div>
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
