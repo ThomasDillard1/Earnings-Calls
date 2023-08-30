@@ -1,40 +1,177 @@
 {% extends "company.html" %}
 {% block title %}{{ ticker }} Income Statement{% endblock %}
-
+<!--return render_template('income.html', ticker=ticker, income_data=income_data, active_page='income_statement')-->
 {% block innercontent %}
 <body>
-    <div class="container mt-5 border">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Line Item</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
+    <div class="container mt-4 border rounded-2">
+        <div class="container mt-2 d-flex justify-content-center h4">Income Statement</div>
+        <div class="container mt-1 border">
+            <table class="table table-striped rounded">
+                <thead>
+                <tr>
+                    <th scope="col">Line Item</th>
+                    <th scope="col">{{ income_data['annualReports'][0]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ income_data['annualReports'][1]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ income_data['annualReports'][2]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ income_data['annualReports'][3]['fiscalDateEnding'] }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Total Revenue</th>
+                        <td>{{ income_data['annualReports'][0]['totalRevenue'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['totalRevenue'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['totalRevenue'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['totalRevenue'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cost of Revenue</th>
+                        <td>{{ income_data['annualReports'][0]['costOfRevenue'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['costOfRevenue'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['costOfRevenue'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['costOfRevenue'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Gross Profit</th>
+                        <td>{{ income_data['annualReports'][0]['grossProfit'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['grossProfit'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['grossProfit'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['grossProfit'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">COGS</th>
+                        <td>{{ income_data['annualReports'][0]['costofGoodsAndServicesSold'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['costofGoodsAndServicesSold'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['costofGoodsAndServicesSold'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['costofGoodsAndServicesSold'] }}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Operating Income</th>
+                        <td>{{ income_data['annualReports'][0]['operatingIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['operatingIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['operatingIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['operatingIncome'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SG&A Expenses</th>
+                        <td>{{ income_data['annualReports'][0]['sellingGeneralAndAdministrative'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['sellingGeneralAndAdministrative'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['sellingGeneralAndAdministrative'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['sellingGeneralAndAdministrative'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">R&D Expenses</th>
+                        <td>{{ income_data['annualReports'][0]['researchAndDevelopment'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['researchAndDevelopment'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['researchAndDevelopment'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['researchAndDevelopment'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Operating Expenses</th>
+                        <td>{{ income_data['annualReports'][0]['operatingExpenses'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['operatingExpenses'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['operatingExpenses'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['operatingExpenses'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Net Investment Income</th>
+                        <td>{{ income_data['annualReports'][0]['investmentIncomeNet'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['investmentIncomeNet'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['investmentIncomeNet'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['investmentIncomeNet'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Net Interest Income</th>
+                        <td>{{ income_data['annualReports'][0]['netInterestIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['netInterestIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['netInterestIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['netInterestIncome'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Non-Interest Income</th>
+                        <td>{{ income_data['annualReports'][0]['nonInterestIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['nonInterestIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['nonInterestIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['nonInterestIncome'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Other Non Operating Income</th>
+                        <td>{{ income_data['annualReports'][0]['otherNonOperatingIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['otherNonOperatingIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['otherNonOperatingIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['otherNonOperatingIncome'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Depreciation</th>
+                        <td>{{ income_data['annualReports'][0]['depreciation'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['depreciation'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['depreciation'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['depreciation'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Depreciation and Amortization</th>
+                        <td>{{ income_data['annualReports'][0]['incomeBeforeTax'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['incomeBeforeTax'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['incomeBeforeTax'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['incomeBeforeTax'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Depreciation and Amortization</th>
+                        <td>{{ income_data['annualReports'][0]['incomeTaxExpense'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['incomeTaxExpense'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['incomeTaxExpense'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['incomeTaxExpense'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Depreciation and Amortization</th>
+                        <td>{{ income_data['annualReports'][0]['interestAndDebtExpense'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['interestAndDebtExpense'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['interestAndDebtExpense'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['interestAndDebtExpense'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Net Inc. From Continuing Operations</th>
+                        <td>{{ income_data['annualReports'][0]['netIncomeFromContinuingOperations'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['netIncomeFromContinuingOperations'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['netIncomeFromContinuingOperations'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['netIncomeFromContinuingOperations'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Comprehensive Income Net Of Tax</th>
+                        <td>{{ income_data['annualReports'][0]['comprehensiveIncomeNetOfTax'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['comprehensiveIncomeNetOfTax'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['comprehensiveIncomeNetOfTax'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['comprehensiveIncomeNetOfTax'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ebit</th>
+                        <td>{{ income_data['annualReports'][0]['ebit'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['ebit'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['ebit'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['ebit'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">EBITDA</th>
+                        <td>{{ income_data['annualReports'][0]['ebitda'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['ebitda'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['ebitda'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['ebitda'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Net Income</th>
+                        <td>{{ income_data['annualReports'][0]['netIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][1]['netIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][2]['netIncome'] }}</td>
+                        <td>{{ income_data['annualReports'][3]['netIncome'] }}</td>
+                    </tr>
+                </tbody>
+        </div>
         </table>
     </div>
+    <p>
+        {{ income_data['annualReports'][0] }}
+    </p>
 </body>
 </html>
 
