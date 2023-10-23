@@ -5,10 +5,9 @@
 <body>
     <div class="container mt-4 border rounded-2">
         <div class="container mt-2 d-flex justify-content-center h4">Income Statement</div>
-        <div class="container mt-1 border">
             <table class="table table-striped rounded">
-                <thead>
-                <tr>
+                <thead style="background-color:lightblue; opacity: 1;">
+                <tr >
                     <th scope="col">Line Item</th>
                     <th scope="col">{{ income_data['annualReports'][0]['fiscalDateEnding'] }}</th>
                     <th scope="col">{{ income_data['annualReports'][1]['fiscalDateEnding'] }}</th>
@@ -166,7 +165,6 @@
                         <td>{{ income_data['annualReports'][3]['netIncome'] }}</td>
                     </tr>
                 </tbody>
-        </div>
         </table>
     </div>
     <p>

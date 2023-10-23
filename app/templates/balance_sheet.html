@@ -1,40 +1,206 @@
 {% extends "company.html" %}
 {% block title %}{{ ticker }} Balance Sheet{% endblock %}
-
+<!--return render_template('income.html', ticker=ticker, income_data=income_data, active_page='income_statement')-->
 {% block innercontent %}
 <body>
-    <div class="container mt-5 border">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Line Item</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
+    <div class="container mt-4 border rounded-2">
+        <div class="container mt-2 d-flex justify-content-center h4">Balance Sheet</div>
+            <table class="table table-striped rounded">
+                <thead style="background-color:lightblue; opacity: 1;">
+                <tr >
+                    <th scope="col">Line Item</th>
+                    <th scope="col">{{ balance_sheet['annualReports'][0]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ balance_sheet['annualReports'][1]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ balance_sheet['annualReports'][2]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ balance_sheet['annualReports'][3]['fiscalDateEnding'] }}</th>
+                </tr>
+                </thead>
+
+                <!--Total assets, current assets, -->
+                <tbody>
+                    <tr>
+                        <th scope="row">Total Assets</th>
+                        <td>{{ balance_sheet['annualReports'][0]['totalAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['totalAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['totalAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['totalAssets'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Current Assets</th>
+                        <td>{{ balance_sheet['annualReports'][0]['totalCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['totalCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['totalCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['totalCurrentAssets'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cash Equivalents</th>
+                        <td>{{ balance_sheet['annualReports'][0]['cashAndCashEquivalentsAtCarryingValue'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['cashAndCashEquivalentsAtCarryingValue'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['cashAndCashEquivalentsAtCarryingValue'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['cashAndCashEquivalentsAtCarryingValue'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Inventory</th>
+                        <td>{{ balance_sheet['annualReports'][0]['inventory'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['inventory'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['inventory'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['inventory'] }}</td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">Net Accounts Receivable</th>
+                        <td>{{ balance_sheet['annualReports'][0]['currentNetReceivables'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['currentNetReceivables'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['currentNetReceivables'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['currentNetReceivables'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Non Current Assets</th>
+                        <td>{{ balance_sheet['annualReports'][0]['totalNonCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['totalNonCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['totalNonCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['totalNonCurrentAssets'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Property, Plant, & Equipment</th>
+                        <td>{{ balance_sheet['annualReports'][0]['propertyPlantEquipment'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['propertyPlantEquipment'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['propertyPlantEquipment'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['propertyPlantEquipment'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Accumulated Depreciation & Amortization</th>
+                        <td>{{ balance_sheet['annualReports'][0]['accumulatedDepreciationAmortizationPPE'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['accumulatedDepreciationAmortizationPPE'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['accumulatedDepreciationAmortizationPPE'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['accumulatedDepreciationAmortizationPPE'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Intangible Assets</th>
+                        <td>{{ balance_sheet['annualReports'][0]['intangibleAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['intangibleAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['intangibleAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['intangibleAssets'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Long Term Investments</th>
+                        <td>{{ balance_sheet['annualReports'][0]['longTermInvestments'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['longTermInvestments'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['longTermInvestments'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['longTermInvestments'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Short Term Investments</th>
+                        <td>{{ balance_sheet['annualReports'][0]['shortTermInvestments'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['shortTermInvestments'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['shortTermInvestments'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['shortTermInvestments'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Other Current Assets</th>
+                        <td>{{ balance_sheet['annualReports'][0]['otherCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['otherCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['otherCurrentAssets'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['otherCurrentAssets'] }}</td>
+                    </tr>
+                    <!--Liabilities-->
+                    <tr>
+                        <th scope="row">Total Liabilities</th>
+                        <td>{{ balance_sheet['annualReports'][0]['totalLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['totalLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['totalLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['totalLiabilities'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total Current Liabilities</th>
+                        <td>{{ balance_sheet['annualReports'][0]['totalCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['totalCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['totalCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['totalCurrentLiabilities'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Current Accounts Payable</th>
+                        <td>{{ balance_sheet['annualReports'][0]['currentAccountsPayable'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['currentAccountsPayable'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['currentAccountsPayable'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['currentAccountsPayable'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Deferred Revenue</th>
+                        <td>{{ balance_sheet['annualReports'][0]['deferredRevenue'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['deferredRevenue'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['deferredRevenue'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['deferredRevenue'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Current Debt</th>
+                        <td>{{ balance_sheet['annualReports'][0]['currentDebt'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['currentDebt'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['currentDebt'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['currentDebt'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total Non Current Liabilities</th>
+                        <td>{{ balance_sheet['annualReports'][0]['totalNonCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['totalNonCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['totalNonCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['totalNonCurrentLiabilities'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Long Term Debt</th>
+                        <td>{{ balance_sheet['annualReports'][0]['longTermDebt'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['longTermDebt'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['longTermDebt'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['longTermDebt'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Other Current Liabilities</th>
+                        <td>{{ balance_sheet['annualReports'][0]['otherCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['otherCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['otherCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['otherCurrentLiabilities'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Other Non Current Liabilities</th>
+                        <td>{{ balance_sheet['annualReports'][0]['otherNonCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['otherNonCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['otherNonCurrentLiabilities'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['otherNonCurrentLiabilities'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total Shareholder Equity</th>
+                        <td>{{ balance_sheet['annualReports'][0]['totalShareholderEquity'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['totalShareholderEquity'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['totalShareholderEquity'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['totalShareholderEquity'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Retained Earnings</th>
+                        <td>{{ balance_sheet['annualReports'][0]['retainedEarnings'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['retainedEarnings'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['retainedEarnings'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['retainedEarnings'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Common Stock</th>
+                        <td>{{ balance_sheet['annualReports'][0]['commonStock'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['commonStock'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['commonStock'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['commonStock'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Treasury Stock</th>
+                        <td>{{ balance_sheet['annualReports'][0]['treasuryStock'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][1]['treasuryStock'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][2]['treasuryStock'] }}</td>
+                        <td>{{ balance_sheet['annualReports'][3]['treasuryStock'] }}</td>
+                    </tr>
+                </tbody>
         </table>
     </div>
+    <p>
+        {{ balance_sheet['annualReports'][0] }}
+    </p>
 </body>
 </html>
 

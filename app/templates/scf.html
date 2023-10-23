@@ -1,40 +1,49 @@
 {% extends "company.html" %}
 {% block title %}{{ ticker }} Statement of Cash Flows{% endblock %}
-
+<!--return render_template('scf.html', ticker=ticker, scf=scf_data, active_page='cash_flows')-->
 {% block innercontent %}
 <body>
-    <div class="container mt-5 border">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Line Item</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
+    <div class="container mt-4 border rounded-2">
+        <div class="container mt-2 d-flex justify-content-center h4">Statement of Cash Flows</div>
+            <table class="table table-striped rounded">
+                <thead style="background-color:lightblue; opacity: 1;">
+                <tr >
+                    <th scope="col">Line Item</th>
+                    <th scope="col">{{ scf['annualReports'][0]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ scf['annualReports'][1]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ scf['annualReports'][2]['fiscalDateEnding'] }}</th>
+                    <th scope="col">{{ scf['annualReports'][3]['fiscalDateEnding'] }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Operating Cash Flow</th>
+                        <td>{{ scf['annualReports'][0]['operatingCashflow'] }}</td>
+                        <td>{{ scf['annualReports'][1]['operatingCashflow'] }}</td>
+                        <td>{{ scf['annualReports'][2]['operatingCashflow'] }}</td>
+                        <td>{{ scf['annualReports'][3]['operatingCashflow'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Investing Cash Flow</th>
+                        <td>{{ scf['annualReports'][0]['cashflowFromInvestment'] }}</td>
+                        <td>{{ scf['annualReports'][1]['cashflowFromInvestment'] }}</td>
+                        <td>{{ scf['annualReports'][2]['cashflowFromInvestment'] }}</td>
+                        <td>{{ scf['annualReports'][3]['cashflowFromInvestment'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>{{ scf['annualReports'][0]['grossProfit'] }}</td>
+                        <td>{{ scf['annualReports'][1]['grossProfit'] }}</td>
+                        <td>{{ scf['annualReports'][2]['grossProfit'] }}</td>
+                        <td>{{ scf['annualReports'][3]['grossProfit'] }}</td>
+                    </tr>
+                    
+                </tbody>
         </table>
     </div>
+    <p>
+        {{ scf['annualReports'][0] }}
+    </p>
 </body>
 </html>
 
