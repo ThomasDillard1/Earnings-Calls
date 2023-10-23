@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container">
-    <h2 class="mb-4 text-center" style="text-decoration: underline; text-decoration-color: #007BFF;text-underline-offset: 0.40em">{{ session['Company_Name'] }} ({{ticker}})</h2>
+    <h2 class="mb-4 text-center" style="text-decoration: underline; text-decoration-color: #007BFF;text-underline-offset: 0.40em">{% block name %}{% endblock %} ({{ ticker }})</h2>
 </div>
 <!--- Put in a navbar here -->
 <div class="container">

@@ -24,6 +24,69 @@
                         <td>{{ scf['annualReports'][3]['operatingCashflow'] }}</td>
                     </tr>
                     <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Net Income</th>
+                        <td>{{ scf['annualReports'][0]['netIncome'] }}</td>
+                        <td>{{ scf['annualReports'][1]['netIncome'] }}</td>
+                        <td>{{ scf['annualReports'][2]['netIncome'] }}</td>
+                        <td>{{ scf['annualReports'][3]['netIncome'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Payments for Operating Activities</th>
+                        <td>{{ scf['annualReports'][0]['paymentsForOperatingActivities'] }}</td>
+                        <td>{{ scf['annualReports'][1]['paymentsForOperatingActivities'] }}</td>
+                        <td>{{ scf['annualReports'][2]['paymentsForOperatingActivities'] }}</td>
+                        <td>{{ scf['annualReports'][3]['paymentsForOperatingActivities'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Proceeds from Operating Activities</th>
+                        <td>{{ scf['annualReports'][0]['proceedsFromOperatingActivities'] }}</td>
+                        <td>{{ scf['annualReports'][1]['proceedsFromOperatingActivities'] }}</td>
+                        <td>{{ scf['annualReports'][2]['proceedsFromOperatingActivities'] }}</td>
+                        <td>{{ scf['annualReports'][3]['proceedsFromOperatingActivities'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Change in Operating Assets</th>
+                        <td>{{ scf['annualReports'][0]['changeInOperatingAssets'] }}</td>
+                        <td>{{ scf['annualReports'][1]['changeInOperatingAssets'] }}</td>
+                        <td>{{ scf['annualReports'][2]['changeInOperatingAssets'] }}</td>
+                        <td>{{ scf['annualReports'][3]['changeInOperatingAssets'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Depreciation & Amortization</th>
+                        <td>{{ scf['annualReports'][0]['depreciationDepletionAndAmortization'] }}</td>
+                        <td>{{ scf['annualReports'][1]['depreciationDepletionAndAmortization'] }}</td>
+                        <td>{{ scf['annualReports'][2]['depreciationDepletionAndAmortization'] }}</td>
+                        <td>{{ scf['annualReports'][3]['depreciationDepletionAndAmortization'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;CapEx</th>
+                        <td>{{ scf['annualReports'][0]['capitalExpenditures'] }}</td>
+                        <td>{{ scf['annualReports'][1]['capitalExpenditures'] }}</td>
+                        <td>{{ scf['annualReports'][2]['capitalExpenditures'] }}</td>
+                        <td>{{ scf['annualReports'][3]['capitalExpenditures'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Change in Receivables</th>
+                        <td>{{ scf['annualReports'][0]['changeInReceivables'] }}</td>
+                        <td>{{ scf['annualReports'][1]['changeInReceivables'] }}</td>
+                        <td>{{ scf['annualReports'][2]['changeInReceivables'] }}</td>
+                        <td>{{ scf['annualReports'][3]['changeInReceivables'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Change in Inventory</th>
+                        <td>{{ scf['annualReports'][0]['changeInInventory'] }}</td>
+                        <td>{{ scf['annualReports'][1]['changeInInventory'] }}</td>
+                        <td>{{ scf['annualReports'][2]['changeInInventory'] }}</td>
+                        <td>{{ scf['annualReports'][3]['changeInInventory'] }}</td>
+                    </tr> 
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Profit Loss</th>
+                        <td>{{ scf['annualReports'][0]['profitLoss'] }}</td>
+                        <td>{{ scf['annualReports'][1]['profitLoss'] }}</td>
+                        <td>{{ scf['annualReports'][2]['profitLoss'] }}</td>
+                        <td>{{ scf['annualReports'][3]['profitLoss'] }}</td>
+                    </tr>                  
+                    <tr>
                         <th scope="row">Investing Cash Flow</th>
                         <td>{{ scf['annualReports'][0]['cashflowFromInvestment'] }}</td>
                         <td>{{ scf['annualReports'][1]['cashflowFromInvestment'] }}</td>
@@ -31,19 +94,71 @@
                         <td>{{ scf['annualReports'][3]['cashflowFromInvestment'] }}</td>
                     </tr>
                     <tr>
-                        <th scope="row"></th>
-                        <td>{{ scf['annualReports'][0]['grossProfit'] }}</td>
-                        <td>{{ scf['annualReports'][1]['grossProfit'] }}</td>
-                        <td>{{ scf['annualReports'][2]['grossProfit'] }}</td>
-                        <td>{{ scf['annualReports'][3]['grossProfit'] }}</td>
+                        <th scope="row">Financing Cash Flow</th>
+                        <td>{{ scf['annualReports'][0]['cashflowFromFinancing'] }}</td>
+                        <td>{{ scf['annualReports'][1]['cashflowFromFinancing'] }}</td>
+                        <td>{{ scf['annualReports'][2]['cashflowFromFinancing'] }}</td>
+                        <td>{{ scf['annualReports'][3]['cashflowFromFinancing'] }}</td>
                     </tr>
-                    
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Proceeds from Repayment of Short Term Debt</th>
+                        <td>{{ scf['annualReports'][0]['proceedsFromRepaymentsOfShortTermDebt'] }}</td>
+                        <td>{{ scf['annualReports'][1]['proceedsFromRepaymentsOfShortTermDebt'] }}</td>
+                        <td>{{ scf['annualReports'][2]['proceedsFromRepaymentsOfShortTermDebt'] }}</td>
+                        <td>{{ scf['annualReports'][3]['proceedsFromRepaymentsOfShortTermDebt'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Payments for Repurchase of Equity</th>
+                        <td>{{ scf['annualReports'][0]['paymentsForRepurchaseOfEquity'] }}</td>
+                        <td>{{ scf['annualReports'][1]['paymentsForRepurchaseOfEquity'] }}</td>
+                        <td>{{ scf['annualReports'][2]['paymentsForRepurchaseOfEquity'] }}</td>
+                        <td>{{ scf['annualReports'][3]['paymentsForRepurchaseOfEquity'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Divident Payout</th>
+                        <td>{{ scf['annualReports'][0]['dividendPayout'] }}</td>
+                        <td>{{ scf['annualReports'][1]['dividendPayout'] }}</td>
+                        <td>{{ scf['annualReports'][2]['dividendPayout'] }}</td>
+                        <td>{{ scf['annualReports'][3]['dividendPayout'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Proceeds from Issuing LTD</th>
+                        <td>{{ scf['annualReports'][0]['proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet'] }}</td>
+                        <td>{{ scf['annualReports'][1]['proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet'] }}</td>
+                        <td>{{ scf['annualReports'][2]['proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet'] }}</td>
+                        <td>{{ scf['annualReports'][3]['proceedsFromIssuanceOfLongTermDebtAndCapitalSecuritiesNet'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Proceeds from Issuing Preferred Stock</th>
+                        <td>{{ scf['annualReports'][0]['proceedsFromIssuanceOfPreferredStock'] }}</td>
+                        <td>{{ scf['annualReports'][1]['proceedsFromIssuanceOfPreferredStock'] }}</td>
+                        <td>{{ scf['annualReports'][2]['proceedsFromIssuanceOfPreferredStock'] }}</td>
+                        <td>{{ scf['annualReports'][3]['proceedsFromIssuanceOfPreferredStock'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Proceeds from Repurchase of Equity</th>
+                        <td>{{ scf['annualReports'][0]['proceedsFromRepurchaseOfEquity'] }}</td>
+                        <td>{{ scf['annualReports'][1]['proceedsFromRepurchaseOfEquity'] }}</td>
+                        <td>{{ scf['annualReports'][2]['proceedsFromRepurchaseOfEquity'] }}</td>
+                        <td>{{ scf['annualReports'][3]['proceedsFromRepurchaseOfEquity'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Proceeds from Sale of Treasury Stock</th>
+                        <td>{{ scf['annualReports'][0]['proceedsFromSaleOfTreasuryStock'] }}</td>
+                        <td>{{ scf['annualReports'][1]['proceedsFromSaleOfTreasuryStock'] }}</td>
+                        <td>{{ scf['annualReports'][2]['proceedsFromSaleOfTreasuryStock'] }}</td>
+                        <td>{{ scf['annualReports'][3]['proceedsFromSaleOfTreasuryStock'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;&nbsp;&nbsp;Change in Cash & Cash Equivalents</th>
+                        <td>{{ scf['annualReports'][0]['changeInCashAndCashEquivalents'] }}</td>
+                        <td>{{ scf['annualReports'][1]['changeInCashAndCashEquivalents'] }}</td>
+                        <td>{{ scf['annualReports'][2]['changeInCashAndCashEquivalents'] }}</td>
+                        <td>{{ scf['annualReports'][3]['changeInCashAndCashEquivalents'] }}</td>
+                    </tr>
                 </tbody>
         </table>
     </div>
-    <p>
-        {{ scf['annualReports'][0] }}
-    </p>
 </body>
 </html>
 

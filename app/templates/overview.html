@@ -1,8 +1,7 @@
 {% extends "company.html" %}
 {% block title %}{{ ticker }} Overview{% endblock %}
-
+{% block name %}{{ company_data['Name'] }}{% endblock %}
 {% block innercontent %}
-
 <div class="container mt-4">    
     <div class="row">
         <div class="col-md-8">

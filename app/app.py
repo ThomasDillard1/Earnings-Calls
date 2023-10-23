@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from decouple import config
-import requests
+import requests, httpx
 
 app = Flask(__name__)
 
@@ -43,7 +43,8 @@ def get_company_overview(ticker):
 @app.route('/<ticker>', methods=['POST', 'GET'])
 def company_overview(ticker):
     company_data = get_company_overview(ticker)
-    session['Company_Name'] = company_data['Name'] #For the company.html header
+
+    #session['Company Name'] = company_data['Name'] #For the company.html header
     return render_template('overview.html', ticker=ticker, company_data=company_data, active_page='overview')
 
 

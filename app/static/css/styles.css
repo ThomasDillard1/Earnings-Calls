@@ -4,3 +4,6 @@
 .nav-text-opacity {
     opacity: 0.7;
 }
+.indented {
+    padding-left: 20px;
+}
